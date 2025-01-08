@@ -1,5 +1,5 @@
 "use client";
-import { SiAdobeillustrator, SiNodedotjs, SiTypescript } from "react-icons/si";
+import { SiAdobeillustrator, SiTypescript } from "react-icons/si";
 import { SiAdobephotoshop } from "react-icons/si";
 import {
     FaHtml5,

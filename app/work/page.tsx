@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from 'framer-motion';
-import React, { use, useState } from 'react';
+import React, { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import "swiper/css";
 
@@ -54,7 +54,7 @@ const Work = () => {
 
     const [project, setProject] = useState(projects[0]);
 
-    const handleSlideChange = (swiper: any) => {
+    const handleSlideChange = (swiper: { activeIndex: any; }) => {
         // get current slide index
         const currentIndex = swiper.activeIndex;
 
