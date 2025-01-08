@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import React, { useState } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper, SwiperClass, SwiperSlide } from 'swiper/react';
 import "swiper/css";
 
 import { BsArrowUpRight, BsGithub } from 'react-icons/bs';
@@ -54,7 +54,7 @@ const Work = () => {
 
     const [project, setProject] = useState(projects[0]);
 
-    const handleSlideChange = (swiper: { activeIndex: any; }) => {
+    const handleSlideChange = (swiper: SwiperClass) => {
         // get current slide index
         const currentIndex = swiper.activeIndex;
 
