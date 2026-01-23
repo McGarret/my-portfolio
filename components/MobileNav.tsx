@@ -8,7 +8,7 @@ import { VisuallyHidden } from '@radix-ui/react-visually-hidden';
 
 const links = [
     {
-        name: "home",
+        name: "accueil",
         path: "/",
     },
     {
@@ -16,11 +16,11 @@ const links = [
         path: "/services",
     },
     {
-        name: "resume",
+        name: "parcours",
         path: "/resume",
     },
     {
-        name: "work",
+        name: "projets",
         path: "/work",
     },
     {

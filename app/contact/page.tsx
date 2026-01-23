@@ -5,8 +5,8 @@ import { FaPhoneAlt, FaEnvelope, FaMapMarkedAlt } from 'react-icons/fa';
 const info = [
     {
         icon: <FaPhoneAlt />,
-        title: 'Phone',
-        description: '(+228) 90 30 21 11'
+        title: 'Téléphone',
+        description: '(+228) 90 30 21 11 / 97 90 87 13'
     },
     {
         icon: <FaEnvelope />,
@@ -15,8 +15,8 @@ const info = [
     },
     {
         icon: <FaMapMarkedAlt />,
-        title: 'Address',
-        description: 'Miabé Tech Services, Agoè Sogbossito'
+        title: 'Adresse',
+        description: 'Agoè Sogbossito, non loin du marché Gnamassigan'
     },
 ];
 
@@ -25,9 +25,57 @@ import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
+import { useToast } from '@/hooks/use-toast';
+import { useState } from 'react';
 
 
 const Contact = () => {
+    const { toast } = useToast();
+    const [loading, setLoading] = useState(false);
+    const [service, setService] = useState("");
+
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        setLoading(true);
+
+        const formData = new FormData(e.currentTarget);
+        // Add the select value manually since Radix Select doesn't use a native select
+        formData.append("service", service);
+        // Important: Replace with your actual Access Key from Web3Forms
+        formData.append("access_key", "YOUR_ACCESS_KEY_HERE");
+
+        try {
+            const response = await fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                body: formData
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                toast({
+                    title: "Message envoyé !",
+                    description: "Merci Benjamin, votre message a été envoyé avec succès.",
+                });
+                (e.target as HTMLFormElement).reset();
+                setService("");
+            } else {
+                toast({
+                    variant: "destructive",
+                    title: "Erreur",
+                    description: "Une erreur est survenue lors de l'envoi du message.",
+                });
+            }
+        } catch (error) {
+            toast({
+                variant: "destructive",
+                title: "Erreur",
+                description: "Impossible de se connecter au service d'envoi.",
+            });
+        } finally {
+            setLoading(false);
+        }
+    };
 
     return (
         <motion.section
@@ -39,41 +87,43 @@ const Contact = () => {
                 <div className='flex flex-col xl:flex-row gap-[30px]'>
                     {/* form */}
                     <div className='xl:w-[54%] order-2 xl:order-none'>
-                        <form action="" className='flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl'>
-                            <h3 className='text-4xl text-accent'>Lets word together</h3>
-                            <p className='text-white/60'>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Cupiditate expedita mollitia unde dicta. Suscipit, sapiente?
-                                Nulla, nesciunt soluta minus vero quas magni, saepe provident
-                                officia facilis culpa laudantium molestiae obcaecati!</p>
+                        <form onSubmit={handleSubmit} className='flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl'>
+                            <h3 className='text-4xl text-accent'>Travaillons ensemble</h3>
+                            <p className='text-white/60'>
+                                Je suis à votre écoute pour discuter de vos projets de développement web, mobiles ou de vos besoins en digitalisation.
+                            </p>
                             {/* input */}
                             <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
-                                <Input type="firstname" placeholder="Firstname" />
-                                <Input type="lastname" placeholder="Lastname" />
-                                <Input type="email" placeholder="Email address" />
-                                <Input type="phone" placeholder="Phone number" />
+                                <Input type="text" name="firstname" placeholder="Prénom" required />
+                                <Input type="text" name="lastname" placeholder="Nom" required />
+                                <Input type="email" name="email" placeholder="Adresse e-mail" required />
+                                <Input type="tel" name="phone" placeholder="Numéro de téléphone" />
                             </div>
                             {/* select */}
-                            <Select>
+                            <Select onValueChange={(value) => setService(value)} value={service}>
                                 <SelectTrigger className='w-full'>
-                                    <SelectValue placeholder="Select a service" />
+                                    <SelectValue placeholder="Sélectionnez un service" />
                                 </SelectTrigger>
                                 <SelectContent>
                                     <SelectGroup>
-                                        <SelectLabel>Select a service</SelectLabel>
-                                        <SelectItem value='est'>Web Developpment</SelectItem>
-                                        <SelectItem value='cst'>UI/UX Design</SelectItem>
-                                        <SelectItem value='mst'>Logo Design</SelectItem>
+                                        <SelectLabel>Sélectionnez un service</SelectLabel>
+                                        <SelectItem value='web'>Développement Web</SelectItem>
+                                        <SelectItem value='saas'>Solutions SaaS & Business</SelectItem>
+                                        <SelectItem value='uiux'>UI/UX & Design Graphique</SelectItem>
+                                        <SelectItem value='mobile'>Développement Mobile</SelectItem>
                                     </SelectGroup>
                                 </SelectContent>
                             </Select>
                             {/* textarea */}
                             <Textarea
+                                name="message"
                                 className='h-[200px]'
-                                placeholder='Type your message here.'
+                                placeholder='Tapez votre message ici.'
+                                required
                             />
                             {/* btn */}
-                            <Button size="md" className='max-w-40'>
-                                Send message
+                            <Button size="md" className='max-w-40' disabled={loading}>
+                                {loading ? "Envoi..." : "Envoyer"}
                             </Button>
                         </form>
                     </div>

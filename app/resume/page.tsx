@@ -10,30 +10,30 @@ import {
     FaNodeJs,
 } from "react-icons/fa";
 
-import { SiTailwindcss, SiNextdotjs } from "react-icons/si";
+import { SiTailwindcss, SiNextdotjs, SiLaravel, SiNestjs } from "react-icons/si";
 import { motion } from "framer-motion";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
 const about = {
-    title: "About me",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    title: "À propos de moi",
+    description: "Développeur web fullstack passionné et expérimenté, avec une solide formation en génie logiciel et 5 années d’expérience dans le développement d’applications web.",
     info: [
         {
-            fieldName: "Name",
+            fieldName: "Nom",
             fieldValue: "Benjamin Koffi AKOSSOU",
         },
         {
-            fieldName: "Phone",
-            fieldValue: "(00228) 90 30 21 11 / 97 90 87 13",
+            fieldName: "Téléphone",
+            fieldValue: "(+228) 90 30 21 11 / 97 90 87 13",
         },
         {
-            fieldName: "Experience",
-            fieldValue: "6+ Years",
+            fieldName: "Expérience",
+            fieldValue: "5+ Ans",
         },
         {
-            fieldName: "Nationality",
+            fieldName: "Nationalité",
             fieldValue: "Togolais",
         },
         {
@@ -42,92 +42,72 @@ const about = {
         },
         {
             fieldName: "Freelance",
-            fieldValue: "Available",
+            fieldValue: "Disponible",
         },
         {
-            fieldName: "Languages",
-            fieldValue: "English, French, Ewe",
+            fieldName: "Langues",
+            fieldValue: "Français, Anglais, Éwé",
         },
     ],
 };
 
 const experience = {
     icon: "/assets/resume/badge.svg",
-    title: "My experience",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    title: "Mon expérience",
+    description: "J'ai conçu et maintenu des solutions logicielles sur mesure dans diverses entreprises et en freelance.",
     items: [
         {
-            company: "Online Services",
-            postion: "Full Stack Developper",
-            duration: "2023 - Present",
+            company: "Online Services (Freelance)",
+            postion: "Développeur Full Stack",
+            duration: "2023 - Présent",
         },
         {
-            company: "GALAXIE TECH",
-            postion: "Backend Developper",
+            company: "Galaxie Tech",
+            postion: "Développeur Laravel",
             duration: "2021 - 2023",
         },
         {
-            company: "Stock Managment Startup",
-            postion: "Full Stack Developper",
-            duration: "2020 - 2021",
-        },
-        {
-            company: "Stage à KAD 7",
-            postion: "Support technique de KAD 7",
+            company: "KAD 7",
+            postion: "Support Technique",
             duration: "2019 - 2020",
         },
         {
-            company: "Stage à AFRITEC TOGO",
-            postion: "Stagiaire en câblage réseaux informatiques",
+            company: "AFRITEC TOGO",
+            postion: "Stagiaire Réseaux",
             duration: "2017 - 2018",
         },
     ],
 };
 const education = {
     icon: "/assets/resume/cap.svg",
-    title: "My education",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    title: "Ma formation",
+    description: "Une formation solide en informatique et génie logiciel.",
     items: [
         {
-            institution: "Online Course Platform",
-            degree: "Full Stack Development Bootcamp",
-            duration: "2023",
-        },
-        {
-            institution: "W3SCHOOL",
-            degree: "Backend Track",
-            duration: "2022",
-        },
-        {
-            institution: "Online Course",
-            degree: "Programming Course",
-            duration: "2023",
-        },
-        {
-            institution: "IAI TOGO",
-            degree: "Diplomé Ingénieur des Traveaux Informatiques",
-            duration: "2020",
-        },
-        {
-            institution: "IAI TOGO",
-            degree: "Licence en Génie Logiciel",
+            institution: "IAI-TOGO",
+            degree: "Licence Analyste Programmeur",
             duration: "2017 - 2020",
+        },
+        {
+            institution: "Lycée de Sogbossito",
+            degree: "Baccalauréat Série D",
+            duration: "2016 - 2017",
         },
     ],
 };
 
 const skills = {
-    title: "My Skills",
+    title: "Mes Compétences",
     description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero dolorem, dicta numquam repellendus necessitatibus beatae quisquam, a nihil dignissimos quibusdam repellat ducimus totam amet. Odio soluta sapiente eveniet enim. Tenetur?",
+        "Maîtrise d'un large éventail de technologies pour le développement d'applications web et mobiles.",
     skillList: [
         {
             icon: <FaHtml5 />,
-            name: "html 5",
+            name: "HTML 5",
         },
         {
             icon: <FaCss3 />,
-            name: "css 3",
+            name: "CSS 3",
         },
         {
             icon: <FaJs />,
@@ -135,35 +115,43 @@ const skills = {
         },
         {
             icon: <SiTypescript />,
-            name: "Javascript",
+            name: "Typescript",
         },
         {
             icon: <FaReact />,
-            name: "react.js",
+            name: "React.js",
         },
         {
             icon: <SiNextdotjs />,
-            name: "next.js",
+            name: "Next.js",
+        },
+        {
+            icon: <SiLaravel />,
+            name: "Laravel",
+        },
+        {
+            icon: <SiNestjs />,
+            name: "Nest.js",
         },
         {
             icon: <FaNodeJs />,
-            name: "node.js",
+            name: "Node.js",
         },
         {
             icon: <SiTailwindcss />,
-            name: "tailwind.css",
+            name: "Tailwind.css",
         },
         {
             icon: <FaFigma />,
-            name: "figma",
+            name: "Figma",
         },
         {
             icon: <SiAdobephotoshop />,
-            name: "adobe photoshop",
+            name: "Adobe Photoshop",
         },
         {
             icon: <SiAdobeillustrator />,
-            name: "adobe illustrator",
+            name: "Adobe Illustrator",
         },
     ],
 };
@@ -184,10 +172,10 @@ const Resume = () => {
                     className="flex flex-col xl:flex-row gap-[60px]"
                 >
                     <TabsList className="flex flex-col w-full max-w-[380px] mx-auto xl:mx-0 gap-6">
-                        <TabsTrigger value="experience">Experience</TabsTrigger>
-                        <TabsTrigger value="education">Education</TabsTrigger>
-                        <TabsTrigger value="skills">Skills</TabsTrigger>
-                        <TabsTrigger value="about">About me</TabsTrigger>
+                        <TabsTrigger value="experience">Expérience</TabsTrigger>
+                        <TabsTrigger value="education">Formation</TabsTrigger>
+                        <TabsTrigger value="skills">Compétences</TabsTrigger>
+                        <TabsTrigger value="about">À propos</TabsTrigger>
                     </TabsList>
 
                     <div className="min-h-[70vh] w-full">

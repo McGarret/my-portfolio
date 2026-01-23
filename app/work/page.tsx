@@ -14,12 +14,10 @@ import WorkSliderBtns from '@/components/WorkSliderBtns';
 const projects = [
     {
         num: '01',
-        category: 'backend',
-        title: 'project 1',
-        description: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-        Sint, atque cum! Eius veniam mollitia sapiente laudantium voluptates incidunt rem praesentium 
-        facilis reprehenderit, et harum facere totam voluptate animi architecto pariatur.`,
-        stack: [{ name: "Html 5" }, { name: "Css 3" }, { name: "Javascript" }],
+        category: 'fullstack',
+        title: 'SaaS Digitalisation de Tontines',
+        description: "Plateforme SaaS moderne pour la gestion et la digitalisation des tontines, permettant une traçabilité et une transparence accrues.",
+        stack: [{ name: "Next.js 15" }, { name: "Laravel 12" }, { name: "TailwindCSS" }],
         image: '/assets/work/thumb1.png',
         live: "",
         github: "",
@@ -27,24 +25,30 @@ const projects = [
     {
         num: '02',
         category: 'fullstack',
-        title: 'project 2',
-        description: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-        Sint, atque cum! Eius veniam mollitia sapiente laudantium voluptates incidunt rem praesentium 
-        facilis reprehenderit, et harum facere totam voluptate animi architecto pariatur.`,
-        stack: [{ name: "Tailwind.css" }, { name: "PHP" }, { name: "Laravel & Livewire" }],
+        title: 'Gestion de Stock & POS',
+        description: "Application robuste de gestion de stock et points de vente conçue avec Filament PHP, offrant une interface d'administration intuitive.",
+        stack: [{ name: "Laravel 10" }, { name: "Filament PHP v3" }, { name: "MySQL" }],
         image: '/assets/work/thumb2.png',
         live: "",
         github: "",
     },
     {
         num: '03',
-        category: 'backend',
-        title: 'project 3',
-        description: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-        Sint, atque cum! Eius veniam mollitia sapiente laudantium voluptates incidunt rem praesentium 
-        facilis reprehenderit, et harum facere totam voluptate animi architecto pariatur.`,
-        stack: [{ name: "Tailwind.css" }, { name: "NestJS" }, { name: "NextJS" }],
+        category: 'frontend',
+        title: 'Plateforme de réservation',
+        description: "Interface fluide et performante pour la réservation de voitures et de terrains de jeux, optimisée pour l'expérience utilisateur.",
+        stack: [{ name: "Next.js" }, { name: "TailwindCSS" }, { name: "Framer Motion" }],
         image: '/assets/work/thumb3.png',
+        live: "",
+        github: "",
+    },
+    {
+        num: '04',
+        category: 'fullstack',
+        title: 'Gestion des Transits DHT',
+        description: "Système complet de gestion des opérations de transit pour DHT Transit, facilitant le suivi des dossiers et la facturation.",
+        stack: [{ name: "Laravel" }, { name: "Bootstrap" }, { name: "PostgreSQL" }],
+        image: '/assets/work/thumb1.png',
         live: "",
         github: "",
     },
@@ -80,7 +84,7 @@ const Work = () => {
                             {/* project category */}
                             <h2
                                 className='text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize'>
-                                {project.category} project
+                                Projet {project.category}
                             </h2>
                             {/* project description */}
                             <p className='text-white/60'>{project.description}</p>
@@ -107,7 +111,7 @@ const Work = () => {
                                                 <BsArrowUpRight className='text-white text-3xl group-hover:text-accent' />
                                             </TooltipTrigger>
                                             <TooltipContent>
-                                                <p>Live project</p>
+                                                <p>Projet en direct</p>
                                             </TooltipContent>
                                         </Tooltip>
                                     </TooltipProvider>
@@ -123,7 +127,7 @@ const Work = () => {
                                                 <BsGithub className='text-white text-3xl group-hover:text-accent' />
                                             </TooltipTrigger>
                                             <TooltipContent>
-                                                <p>Github repository</p>
+                                                <p>Dépôt Github</p>
                                             </TooltipContent>
                                         </Tooltip>
                                     </TooltipProvider>

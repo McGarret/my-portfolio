@@ -8,33 +8,32 @@ import Link from "next/link";
 const services = [
     {
         num: "01",
-        title: "Web Developpment",
+        title: "Développement Web",
         description:
-            "Lorem ipsum dolor sit amet consectetur consectetur consectetur",
+            "Expertise en Laravel, Next.js et Nest.js pour des applications web performantes, scalables et sécurisées.",
         href: '',
     },
     {
         num: "02",
-        title: "UI/UX Design",
+        title: "Solutions SaaS & Business",
         description:
-            "Lorem ipsum dolor sit amet consectetur consectetur consectetur",
+            "Conception de plateformes SaaS, gestion de stock/POS et outils de digitalisation des processus métiers.",
         href: '',
     },
     {
         num: "03",
-        title: "Logo Design",
+        title: "UI/UX & Design Graphique",
         description:
-            "Lorem ipsum dolor sit amet consectetur consectetur consectetur",
+            "Création d'interfaces intuitives sur Figma et conception graphique avec Photoshop, Illustrator et InDesign.",
         href: '',
     },
     {
         num: "04",
-        title: "SEO",
+        title: "Développement Mobile",
         description:
-            "Lorem ipsum dolor sit amet consectetur consectetur consectetur",
+            "Développement d'applications mobiles cross-platform avec React Native pour une expérience native fluide.",
         href: '',
     },
-
 ];
 
 const Services = () => {

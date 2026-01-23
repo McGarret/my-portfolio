@@ -24,6 +24,8 @@ export const metadata: Metadata = {
   description: "Web Developer Portfolio of Benjamin Koffi AKOSSOU",
 };
 
+import { Toaster } from "@/components/ui/toaster";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -39,6 +41,7 @@ export default function RootLayout({
         <PageTransition>
           {children}
         </PageTransition>
+        <Toaster />
       </body>
     </html>
   );
