@@ -13,11 +13,7 @@ const stats = [
     },
     {
         num: 12,
-        text: "Technologies maîtrisées",
-    },
-    {
-        num: 500,
-        text: "Commits de code",
+        text: "Technologies couramment utilisées",
     },
 ];
 

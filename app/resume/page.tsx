@@ -8,9 +8,15 @@ import {
     FaJs,
     FaFigma,
     FaNodeJs,
+    FaRobot,
+    FaCode,
+    FaRocket,
+    FaTerminal,
+    FaBrain,
+    FaCogs,
 } from "react-icons/fa";
 
-import { SiTailwindcss, SiNextdotjs, SiLaravel, SiNestjs } from "react-icons/si";
+import { SiTailwindcss, SiNextdotjs, SiLaravel, SiNestjs, SiOpenai, SiGoogle } from "react-icons/si";
 import { motion } from "framer-motion";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -18,7 +24,7 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/comp
 
 const about = {
     title: "À propos de moi",
-    description: "Développeur web fullstack passionné et expérimenté, avec une solide formation en génie logiciel et 5 années d’expérience dans le développement d’applications web.",
+    description: "Développeur Fullstack avec 5+ ans d'expérience, je fusionne génie logiciel et Intelligence Artificielle pour créer des applications de pointe. Expert dans l'intégration d'outils IA (Cursor, Antigravity) et de modèles LLM (Claude, Gemini) pour optimiser la conception et la productivité.",
     info: [
         {
             fieldName: "Nom",
@@ -83,6 +89,11 @@ const education = {
     title: "Ma formation",
     description: "Une formation solide en informatique et génie logiciel.",
     items: [
+        {
+            institution: "Auto-formation & Certifications",
+            degree: "Expertise IA & Prompt Engineering",
+            duration: "2023 - Présent",
+        },
         {
             institution: "IAI-TOGO",
             degree: "Licence Analyste Programmeur",
@@ -156,6 +167,46 @@ const skills = {
     ],
 };
 
+const aiSkills = {
+    title: "Intelligence Artificielle",
+    description:
+        "Utilisation avancée des modèles d'IA et des environnements de développement de nouvelle génération pour booster la productivité et la qualité du code.",
+    skillList: [
+        {
+            icon: <SiOpenai />,
+            name: "ChatGPT & GPT-4",
+        },
+        {
+            icon: <SiGoogle />,
+            name: "Google Gemini",
+        },
+        {
+            icon: <FaRobot />,
+            name: "Claude (Anthropic)",
+        },
+        {
+            icon: <FaCode />,
+            name: "Cursor IDE",
+        },
+        {
+            icon: <FaRocket />,
+            name: "Antigravity",
+        },
+        {
+            icon: <FaTerminal />,
+            name: "Claude Code",
+        },
+        {
+            icon: <FaBrain />,
+            name: "Prompt Engineering",
+        },
+        {
+            icon: <FaCogs />,
+            name: "Automatisation IA",
+        },
+    ],
+};
+
 const Resume = () => {
     return (
         <motion.div
@@ -175,6 +226,7 @@ const Resume = () => {
                         <TabsTrigger value="experience">Expérience</TabsTrigger>
                         <TabsTrigger value="education">Formation</TabsTrigger>
                         <TabsTrigger value="skills">Compétences</TabsTrigger>
+                        <TabsTrigger value="ai">IA & Innovation</TabsTrigger>
                         <TabsTrigger value="about">À propos</TabsTrigger>
                     </TabsList>
 
@@ -274,6 +326,35 @@ const Resume = () => {
                             </div>
                         </TabsContent>
 
+
+                        <TabsContent value="ai" className="w-full h-full">
+                            <div className="flex flex-col gap-[30px] text-center xl:text-left">
+                                <h3 className="text-4xl font-bold"> {aiSkills.title} </h3>
+                                <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
+                                    {aiSkills.description}
+                                </p>
+                                <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 xl:gap-[30px]">
+                                    {aiSkills.skillList.map((skill, index) => {
+                                        return (
+                                            <li key={index}>
+                                                <TooltipProvider delayDuration={100}>
+                                                    <Tooltip>
+                                                        <TooltipTrigger className="w-full h-[150px] bg-[#232329] rounded-xl flex justify-center items-center group">
+                                                            <div className="text-6xl group-hover:text-accent transition-all duration-300">
+                                                                {skill.icon}
+                                                            </div>
+                                                        </TooltipTrigger>
+                                                        <TooltipContent>
+                                                            <p className="capitalize">{skill.name}</p>
+                                                        </TooltipContent>
+                                                    </Tooltip>
+                                                </TooltipProvider>
+                                            </li>
+                                        );
+                                    })}
+                                </ul>
+                            </div>
+                        </TabsContent>
 
                         <TabsContent value="about" className="w-full text-center xl:text-left">
                             <div className="flex flex-col gap-[30px]">

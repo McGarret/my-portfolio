@@ -3,12 +3,11 @@ import Link from "next/link";
 import { FaGithub, FaLinkedin, FaYoutube, FaTwitter, FaWhatsapp } from "react-icons/fa"
 
 const socials = [
-    { icon: <FaGithub />, path: "" },
-    { icon: <FaLinkedin />, path: "" },
-    { icon: <FaYoutube />, path: "" },
-    { icon: <FaTwitter />, path: "" },
-    { icon: <FaWhatsapp />, path: "" },
+    { icon: <FaGithub />, path: "https://github.com/McGarret" },
+    { icon: <FaLinkedin />, path: "https://www.linkdin.com/in/benjaminakossou-89427b199/" },
+    { icon: <FaWhatsapp />, path: "https://wa.me/+22890302111" },
 ];
+
 
 interface SocialProps {
     containerStyles: string;
